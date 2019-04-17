@@ -32,12 +32,12 @@ public class FetchFromJSON extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fetch_from_json);
 
-        recyclerView = (RecyclerView) findViewById(R.id.newfeed_recycler_view);
+        recyclerView = findViewById(R.id.newfeed_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         articlesLists = new ArrayList<>();
-
+        loadUrlData();
     }
 
     private void loadUrlData(){
