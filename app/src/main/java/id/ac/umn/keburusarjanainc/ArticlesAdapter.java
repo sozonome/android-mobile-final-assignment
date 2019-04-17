@@ -38,6 +38,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final ArticlesList articlesList = articlesLists.get(position);
         holder.title.setText(articlesList.getArticle_title());
+
         Picasso.with(context)
                 .load(articlesList.getArticle_image())
                 .into(holder.image);
@@ -67,9 +68,10 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
 
         public ViewHolder(View itemView){
             super(itemView);
-            title = (TextView) itemView.findViewById(R.id.article_title);
-            image = (ImageView) itemView.findViewById(R.id.article_image);
-            linearLayout = (LinearLayout) itemView.findViewById(R.id.linearLayout);
+
+            title = itemView.findViewById(R.id.article_title);
+            image = itemView.findViewById(R.id.article_image);
+            linearLayout = itemView.findViewById(R.id.linearLayout);
         }
     }
 }

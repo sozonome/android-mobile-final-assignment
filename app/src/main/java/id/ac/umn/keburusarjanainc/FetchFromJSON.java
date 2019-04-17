@@ -60,7 +60,10 @@ public class FetchFromJSON extends AppCompatActivity {
                     JSONArray array = new JSONArray(response);
                     for(int i=0; i<array.length(); i++){
                         JSONObject jo = array.getJSONObject(i);
-                        ArticlesList articles = new ArticlesList(jo.getString("id"), jo.getString("featured_media"), jo.getString("status"));
+                        JSONObject jo_title = jo.getJSONObject("title");
+                        JSONObject jo_image = jo.getJSONObject("better_featured_image");
+                        JSONObject jo_content = jo.getJSONObject("content");
+                        ArticlesList articles = new ArticlesList(jo_title.getString("rendered"), jo_image.getString("source_url"), jo_content.getString("rendered"));
                         articlesLists.add(articles);
                     }
 
