@@ -43,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
 
+            case R.id.fetch_from_json_button:
+                Intent intent2 = new Intent(MainActivity.this, FetchFromJSON.class);
+                startActivity(intent2);
+                break;
+
             case R.id.about_menu:
                 break;
         }

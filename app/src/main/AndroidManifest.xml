@@ -18,7 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QRCodeScanner"></activity>
+        <activity android:name=".QRCodeScanner" />
+        <activity android:name=".FetchFromJSON" />
+        <activity android:name=".ArticleActivity"></activity>
     </application>
 
 </manifest>
