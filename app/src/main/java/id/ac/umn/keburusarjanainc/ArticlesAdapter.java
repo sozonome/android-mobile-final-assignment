@@ -6,12 +6,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHolder> {
@@ -19,6 +23,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
     public static final String KEY_TITLE = "title";
     public static final String KEY_IMAGE = "image";
     public static final String KEY_CONTENT = "content";
+    public static final String KEY_DATE = "date";
 
     private List<ArticlesList> articlesLists;
     private Context context;
@@ -38,6 +43,8 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final ArticlesList articlesList = articlesLists.get(position);
         holder.title.setText(articlesList.getArticle_title());
+//        holder.title.loadData(articlesList.getArticle_title(), "text/html", "utf-8");
+        holder.a_date.setText(articlesList.getArticle_date());
 
         Picasso.with(context)
                 .load(articlesList.getArticle_image())
@@ -51,6 +58,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
                 skipIntent.putExtra(KEY_TITLE, articlesList1.getArticle_title());
                 skipIntent.putExtra(KEY_IMAGE, articlesList1.getArticle_image());
                 skipIntent.putExtra(KEY_CONTENT, articlesList1.getArticle_content());
+                skipIntent.putExtra(KEY_DATE, articlesList1.getArticle_date());
                 v.getContext().startActivity(skipIntent);
             }
         });
@@ -64,6 +72,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder{
         public TextView title;
         public ImageView image;
+        public TextView a_date;
         public LinearLayout linearLayout;
 
         public ViewHolder(View itemView){
@@ -71,6 +80,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
 
             title = itemView.findViewById(R.id.article_title);
             image = itemView.findViewById(R.id.article_image);
+            a_date = itemView.findViewById(R.id.article_date);
             linearLayout = itemView.findViewById(R.id.linearLayout);
         }
     }

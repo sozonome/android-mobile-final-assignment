@@ -33,6 +33,12 @@
                     android:textSize="18sp"
                     android:text="Article_Title"
                     android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/article_date"
+                    android:textColor="#555"
+                    android:text="date"/>
             </LinearLayout>
 
         </LinearLayout>
