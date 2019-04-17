@@ -5,12 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -46,23 +49,21 @@ public class FetchFromJSON extends AppCompatActivity {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading . . .");
         progressDialog.show();
-        
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
-                URL_DATA, new Response.Listener<String>() {
+            URL_DATA, new Response.Listener<String>() {
+
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
                 try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    for(int i=0; i<jsonObject.length(); i++){
-                        JSONArray array = jsonObject.getJSONArray(String.valueOf(i));
-//                        JSONObject jo = array.getJSONObject(i);
-                        JSONArray jo_title = array.getJSONArray(10);
-                        JSONArray jo_image = array.getJSONArray(23);
-                        JSONArray jo_content = array.getJSONArray(12);
-                        ArticlesList articles = new ArticlesList(jo_title.getString(0), jo_image.getString(7), jo_content.getString(0));
+                    JSONArray array = new JSONArray(response);
+                    for(int i=0; i<array.length(); i++){
+                        JSONObject jo = array.getJSONObject(i);
+                        ArticlesList articles = new ArticlesList(jo.getString("id"), jo.getString("featured_media"), jo.getString("status"));
                         articlesLists.add(articles);
                     }
+
                     adapter = new ArticlesAdapter(articlesLists, getApplicationContext());
                     recyclerView.setAdapter(adapter);
                 } catch (JSONException e){

@@ -2,8 +2,6 @@ package id.ac.umn.keburusarjanainc;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.StrictMode;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,15 +27,15 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
         this.articlesLists = articlesLists;
         this.context = context;
     }
-    @NonNull
+
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.articles_list, parent, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         final ArticlesList articlesList = articlesLists.get(position);
         holder.title.setText(articlesList.getArticle_title());
         Picasso.with(context)

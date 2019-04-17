@@ -17,9 +17,9 @@ public class ArticleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article);
 
-        TextView articleTitle = (TextView) findViewById(R.id.article_title);
-        ImageView articleImageView = (ImageView) findViewById(R.id.article_image);
-        TextView articleContent = (TextView) findViewById(R.id.article_content);
+        TextView articleTitle = findViewById(R.id.article_title);
+        ImageView articleImageView = findViewById(R.id.article_image);
+        TextView articleContent = findViewById(R.id.article_content);
 
         Intent intent = getIntent();
         final String title = intent.getStringExtra(ArticlesAdapter.KEY_TITLE);
