@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".QRCodeScanner" />
         <activity android:name=".FetchFromJSON" />
-        <activity android:name=".ArticleActivity"></activity>
+        <activity android:name=".ArticleActivity" />
+        <activity android:name=".MainActivity_Build"></activity>
     </application>
 
 </manifest>
