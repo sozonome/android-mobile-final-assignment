@@ -48,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent2);
                 break;
 
+            case R.id.intended_home:
+                Intent intent3 = new Intent(MainActivity.this, MainActivity_Build.class);
+                startActivity(intent3);
+                break;
+
             case R.id.about_menu:
                 break;
         }

@@ -9,6 +9,9 @@
         android:id="@+id/fetch_from_json_button"
         android:title="Fetch from JSON" />
     <item
+        android:id="@+id/intended_home"
+        android:title="Intended Home" />
+    <item
         android:id="@+id/about_menu"
         android:title="About" />
 </menu>
