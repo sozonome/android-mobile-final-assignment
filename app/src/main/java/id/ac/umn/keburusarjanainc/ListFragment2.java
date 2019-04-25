@@ -29,14 +29,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListFragment extends Fragment {
+public class ListFragment2 extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ArticlesList> articlesLists;
 
     private static final String URL_DATA = "http://ultimagz.com/wp-json/wp/v2/posts";
-    private final String URL_PARAM = "";
+    private final String URL_PARAM = "?categories?name=indepth";
     //    http://ultimagz.com/wp-json/wp/v2/posts?categories?name=berita-kampus
 //    http://ultimagz.com/wp-json/wp/v2/posts?categories?name=event
 //
@@ -78,7 +78,7 @@ public class ListFragment extends Fragment {
         progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
-                URL_DATA, new Response.Listener<String>() {
+                URL_DATA+URL_PARAM, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
