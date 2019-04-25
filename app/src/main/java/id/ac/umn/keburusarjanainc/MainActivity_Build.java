@@ -43,5 +43,8 @@ public class MainActivity_Build extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapter);
 //        pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), "");
 //        viewPager.setAdapter(pagerAdapter);
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
     }
 }

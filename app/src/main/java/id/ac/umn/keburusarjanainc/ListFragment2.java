@@ -17,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
@@ -34,6 +35,8 @@ public class ListFragment2 extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ArticlesList> articlesLists;
+
+
 
     private static final String URL_DATA = "http://ultimagz.com/wp-json/wp/v2/posts";
     private final String URL_PARAM = "?categories?name=indepth";
@@ -104,6 +107,22 @@ public class ListFragment2 extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getContext(), "Error" + error.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        stringRequest.setRetryPolicy(new RetryPolicy() {
+            @Override
+            public int getCurrentTimeout() {
+                return 50000;
+            }
+
+            @Override
+            public int getCurrentRetryCount() {
+                return 50000;
+            }
+
+            @Override
+            public void retry(VolleyError error) throws VolleyError {
+
             }
         });
 
