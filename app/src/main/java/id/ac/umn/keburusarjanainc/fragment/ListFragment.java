@@ -84,11 +84,14 @@ public class ListFragment extends Fragment {
                         JSONObject jo_content = jo.getJSONObject("content");
                         ArticlesList articles = new ArticlesList(jo_title.getString("rendered"), jo_image.getString("source_url"), jo_content.getString("rendered"), jo.getString("date"));
                         articlesLists.add(articles);
+                        Log.d("Test Data ViewPager", "Title JSON : " + jo_title);
+                        Log.d("Test Data ViewPager", "Title list : " + articlesLists.get(i).getArticle_title());
                     }
 
                     adapter = new ArticlesAdapter(articlesLists, getContext());
                     recyclerView.setAdapter(adapter);
                     Log.d("Test Data ViewPager", "Title : " + articlesLists.get(0).getArticle_title());
+                    Log.d("Test Data ViewPager", "Size : " + articlesLists.size());
                 } catch (JSONException e){
                     e.printStackTrace();
                 }
