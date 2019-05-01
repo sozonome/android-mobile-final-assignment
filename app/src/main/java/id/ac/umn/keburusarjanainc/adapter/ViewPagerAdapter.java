@@ -1,9 +1,11 @@
-package id.ac.umn.keburusarjanainc;
+package id.ac.umn.keburusarjanainc.adapter;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import id.ac.umn.keburusarjanainc.fragment.ListFragment;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 
@@ -25,17 +27,24 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 //        }
 //        return null;
 
-        TestFragment testFragment = new TestFragment();
+        ListFragment listFragment= new ListFragment();
         position = position+1;
         Bundle bundle = new Bundle();
         bundle.putString("message", "Fragment :"+position);
-        testFragment.setArguments(bundle);
-        return testFragment;
+        listFragment.setArguments(bundle);
+        return listFragment;
     }
 
     @Override
     public int getCount() {
         //total pages
         return 3;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        position = position +1;
+        return "Fragment " + position;
     }
 }

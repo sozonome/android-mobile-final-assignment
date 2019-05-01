@@ -1,4 +1,4 @@
-package id.ac.umn.keburusarjanainc;
+package id.ac.umn.keburusarjanainc.model;
 
 public class ArticlesList {
     private String article_title;
