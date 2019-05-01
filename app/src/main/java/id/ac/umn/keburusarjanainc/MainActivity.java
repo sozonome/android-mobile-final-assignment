@@ -1,32 +1,39 @@
 package id.ac.umn.keburusarjanainc;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.TextView;
+import android.widget.Toolbar;
+
+import id.ac.umn.keburusarjanainc.adapter.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    private WebView myWebView;
+    private ViewPager viewPager; //isi page tiap tab
+    private TabLayout tabLayout; //tab kategori
+
+    //Adapter yang fungsinya untuk mengatur isi page sesuai tab atau page yang dipilih
+    private ViewPagerAdapter viewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbarTop = (Toolbar) findViewById(R.id.nav_view);
-//        TextView mTitle = (TextView) toolbarTop.findViewById(R.id.content_frame);
-        myWebView = (WebView)findViewById(R.id.webView);
-        WebSettings webSettings = myWebView.getSettings();
-        myWebView.setWebViewClient(new WebViewClient());
-        myWebView.loadUrl("http://www.ultimagz.com");
+
+        viewPager = findViewById(R.id.viewPager);
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(viewPagerAdapter);
+
+        tabLayout = findViewById(R.id.tabLayout);
+        tabLayout.setupWithViewPager(viewPager);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,11 +53,6 @@ public class MainActivity extends AppCompatActivity {
             case R.id.fetch_from_json_button:
                 Intent intent2 = new Intent(MainActivity.this, FetchFromJSON.class);
                 startActivity(intent2);
-                break;
-
-            case R.id.intended_home:
-                Intent intent3 = new Intent(MainActivity.this, MainActivity_Build.class);
-                startActivity(intent3);
                 break;
 
             case R.id.about_menu:

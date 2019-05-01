@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
+import id.ac.umn.keburusarjanainc.adapter.ArticlesAdapter;
 
 public class ArticleActivity extends AppCompatActivity {
 
