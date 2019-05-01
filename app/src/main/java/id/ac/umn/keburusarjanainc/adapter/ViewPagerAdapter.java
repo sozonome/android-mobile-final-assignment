@@ -68,7 +68,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 return listFragment;
         }
 
-        Log.d("ViewPager", "End");
+        Log.d("ViewPager", "End Null");
         return null;
     }
 

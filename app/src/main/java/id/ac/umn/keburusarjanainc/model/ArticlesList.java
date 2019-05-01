@@ -1,5 +1,7 @@
 package id.ac.umn.keburusarjanainc.model;
 
+import android.text.Html;
+
 public class ArticlesList {
     private String article_title;
     private String article_image;
@@ -7,7 +9,7 @@ public class ArticlesList {
     private String article_date;
 
     public ArticlesList(String article_title, String article_image, String article_content, String article_date) {
-        this.article_title = article_title;
+        this.article_title = String.valueOf(Html.fromHtml(article_title, Html.FROM_HTML_MODE_LEGACY));
         this.article_image = article_image;
         this.article_content = article_content;
         this.article_date = article_date;
