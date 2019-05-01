@@ -17,24 +17,24 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-//        switch (position){
-//            case 0:
-//                ListFragment listFragment = new ListFragment();
-//                Log.d("ViewPagerAdapter", "Isi : " + listFragment);
-//                return listFragment;
-//            case 1:
-//                ListFragment listFragment2 = new ListFragment("?categories?name=berita-kampus" );
-//                Log.d("ViewPagerAdapter", "Isi : " + listFragment2);
-//                return listFragment2;
-//        }
-//        return null;
+        ListFragment listFragment = new ListFragment();
+        Log.d("ViewPagerAdapter", "Mulai Masuk : " + position + " " + listFragment);
+        Bundle bundle = new Bundle();
 
-        ListFragment listFragment= new ListFragment();
-//        position = position+1;
-//        Bundle bundle = new Bundle();
-//        bundle.putString("message", "Fragment :"+position);
-//        listFragment.setArguments(bundle);
-        return listFragment;
+        switch (position){
+            case 0:
+                bundle.putString("param", "");
+                listFragment.setArguments(bundle);
+                return listFragment;
+            case 1:
+                bundle.putString("param", "?categories?name=berita-kampus");
+                listFragment.setArguments(bundle);
+                return listFragment;
+            default:
+        }
+
+        Log.d("ViewPager", "End");
+        return null;
     }
 
     @Override

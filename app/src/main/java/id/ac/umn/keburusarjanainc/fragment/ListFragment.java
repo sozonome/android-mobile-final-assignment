@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import id.ac.umn.keburusarjanainc.FetchFromJSON;
 import id.ac.umn.keburusarjanainc.R;
 import id.ac.umn.keburusarjanainc.adapter.ArticlesAdapter;
 import id.ac.umn.keburusarjanainc.model.ArticlesList;
@@ -42,17 +42,12 @@ public class ListFragment extends Fragment {
     private List<ArticlesList> articlesLists;
 
     private static final String URL_DATA = "http://ultimagz.com/wp-json/wp/v2/posts";
-    private String URL_PARAM = "";
+//    private String URL_PARAM = "";
 //    private String title = "";
 
     public ListFragment() {
         // Required empty public constructor
     }
-
-    public ListFragment(String URL_PARAM){
-        this.URL_PARAM = URL_PARAM;
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,19 +60,18 @@ public class ListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         articlesLists = new ArrayList<>();
-        loadUrlData();
+        loadUrlData(getArguments().getString("param"));
 
         return view;
     }
 
-    private void loadUrlData(){
+    private void loadUrlData(String URL_PARAM){
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Loading . . .");
         progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 URL_DATA + URL_PARAM, new Response.Listener<String>() {
-
             @Override
             public void onResponse(String response) {
                 progressDialog.dismiss();
@@ -94,6 +88,7 @@ public class ListFragment extends Fragment {
 
                     adapter = new ArticlesAdapter(articlesLists, getContext());
                     recyclerView.setAdapter(adapter);
+                    Log.d("Test Data ViewPager", "Title : " + articlesLists.get(0).getArticle_title());
                 } catch (JSONException e){
                     e.printStackTrace();
                 }
@@ -121,6 +116,7 @@ public class ListFragment extends Fragment {
             }
         });
 
+        Log.d("URL ViewPager", "URL yang ditarik : " + URL_DATA + URL_PARAM);
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
