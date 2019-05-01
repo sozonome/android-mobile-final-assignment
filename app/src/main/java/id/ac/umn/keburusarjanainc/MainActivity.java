@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -56,8 +57,24 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.about_menu:
+                aboutDialog();
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    void aboutDialog(){
+        AlertDialog.Builder about_dialog = new AlertDialog.Builder(this);
+        about_dialog.setTitle("Ultimagz Mobile App");
+        about_dialog.setMessage("Developed by :\n\n" +
+                "Hanasya Shabrina - 00000014425\n" +
+                "Agustinus Nathaniel - 00000014472\n" +
+                "Robin Colinkang - 00000017937\n" +
+                "Imam Wiratama - 18173\n\n" +
+                "2019");
+        about_dialog.setNegativeButton("Back", null);
+
+        AlertDialog dialog = about_dialog.create();
+        dialog.show();
     }
 }

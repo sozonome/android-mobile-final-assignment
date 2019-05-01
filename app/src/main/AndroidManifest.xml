@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_u"
+        android:icon="@mipmap/ic_launcher_square_ultimagz"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_u_round"
+        android:roundIcon="@mipmap/ic_launcher_circle_ultimagz"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -21,7 +21,6 @@
         <activity android:name=".QRCodeScanner" />
         <activity android:name=".FetchFromJSON" />
         <activity android:name=".ArticleActivity" />
-        <activity android:name=".MainActivity_Build"></activity>
     </application>
 
 </manifest>
