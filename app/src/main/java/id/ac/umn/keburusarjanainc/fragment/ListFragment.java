@@ -36,14 +36,11 @@ import id.ac.umn.keburusarjanainc.model.ArticlesList;
  * A simple {@link Fragment} subclass.
  */
 public class ListFragment extends Fragment {
-//    private TextView textView;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ArticlesList> articlesLists;
 
     private static final String URL_DATA = "http://ultimagz.com/wp-json/wp/v2/posts";
-//    private String URL_PARAM = "";
-//    private String title = "";
 
     public ListFragment() {
         // Required empty public constructor

@@ -13,6 +13,8 @@ import id.ac.umn.keburusarjanainc.adapter.ArticlesAdapter;
 
 public class ArticleActivity extends AppCompatActivity {
 
+    //Activity yang menampilkan detail Artikel secara Individual
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
