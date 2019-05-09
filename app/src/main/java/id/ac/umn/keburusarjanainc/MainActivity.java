@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 "Hanasya Shabrina - 00000014425\n" +
                 "Agustinus Nathaniel - 00000014472\n" +
                 "Robin Colinkang - 00000017937\n" +
-                "Imam Wiratama - 18173\n\n" +
+                "Imam Wiratama - 00000018173\n\n" +
                 "2019");
         about_dialog.setNegativeButton("Back", null);
 

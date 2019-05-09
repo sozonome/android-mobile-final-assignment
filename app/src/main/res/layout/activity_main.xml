@@ -17,6 +17,7 @@
         android:minHeight="?attr/actionBarSize"
         app:tabGravity="fill"
         app:tabTextColor="@color/colorPrimary"
+        app:tabIndicatorColor="@color/colorPrimaryDark"
         app:tabSelectedTextColor="#000"/>
 
 
