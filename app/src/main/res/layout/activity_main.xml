@@ -12,12 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="scrollable"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorAccent"
         android:elevation="4dp"
         android:minHeight="?attr/actionBarSize"
         app:tabGravity="fill"
-        app:tabTextColor="#D42"
-        app:tabSelectedTextColor="#FFF"/>
+        app:tabTextColor="@color/colorPrimary"
+        app:tabSelectedTextColor="#000"/>
 
 
     <android.support.v4.view.ViewPager
