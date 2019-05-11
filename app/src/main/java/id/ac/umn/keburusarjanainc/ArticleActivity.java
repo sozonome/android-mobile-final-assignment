@@ -3,6 +3,7 @@ package id.ac.umn.keburusarjanainc;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +24,9 @@ public class ArticleActivity extends AppCompatActivity {
         TextView articleTitle = findViewById(R.id.article_title);
         ImageView articleImageView = findViewById(R.id.article_image);
         WebView articleContent = findViewById(R.id.article_content);
+        WebSettings webSettings = articleContent.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setJavaScriptCanOpenWindowsAutomatically(true);
 
         Intent intent = getIntent();
         final String title = intent.getStringExtra(ArticlesAdapter.KEY_TITLE);
@@ -33,7 +37,7 @@ public class ArticleActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(image)
                 .into(articleImageView);
-//        articleContent.setText(content);
+
         articleContent.loadData(content, "text/html", "utf-8");
 
     }
