@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) { //Create Option Menu di TopBar / Action Bar
         MenuInflater inflater = getMenuInflater();
