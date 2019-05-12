@@ -19,8 +19,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".QRCodeScanner" />
-        <activity android:name=".FetchFromJSON" />
         <activity android:name=".ArticleActivity" />
+        <activity
+            android:name=".FokusWebActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".AboutActivity"></activity>
     </application>
 
 </manifest>

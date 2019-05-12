@@ -52,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.about_menu:
-                aboutDialog();
+//                aboutDialog();
+                Intent intent1 = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(intent1);
                 break;
         }
         return super.onOptionsItemSelected(item);

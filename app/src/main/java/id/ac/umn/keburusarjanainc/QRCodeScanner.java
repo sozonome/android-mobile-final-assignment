@@ -26,11 +26,15 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+import id.ac.umn.keburusarjanainc.adapter.ArticlesAdapter;
 import id.ac.umn.keburusarjanainc.model.ArticlesList;
 import xyz.belvi.mobilevisionbarcodescanner.BarcodeRetriever;
 
 public class QRCodeScanner extends AppCompatActivity implements BarcodeRetriever{
 //    private WebView myWebView2;
+
+    public static final String KEY_URL = "url";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +68,9 @@ public class QRCodeScanner extends AppCompatActivity implements BarcodeRetriever
 
                 String scannedLink = barcode.displayValue;
                 String[] strings = scannedLink.split("/", 0);
-                String mustHaveString = "ultimagz.com";
-                if(strings[2].equals(mustHaveString)){
+                String ultimagzArtikel = "ultimagz.com";
+                String fokus = "fokus.ultimagz.com";
+                if(strings[2].equals(ultimagzArtikel)){
                     if(strings.length>4 ){
                         String slug = strings[strings.length -1];
                         loadArticle("?slug="+slug);
@@ -73,6 +78,14 @@ public class QRCodeScanner extends AppCompatActivity implements BarcodeRetriever
                     else{
                         showErrorToastMessage();
                     }
+                }
+                else if(strings[2].equals(fokus)){
+                    Log.d("URL CodeScanned", "URL yang akan ditarik : " + scannedLink);
+
+                    Intent skipIntent = new Intent(getApplicationContext(), FokusWebActivity.class);
+                    skipIntent.putExtra(KEY_URL, scannedLink);
+
+                    startActivity(skipIntent);
                 }
                 else{
                     showErrorToastMessage();
@@ -115,15 +128,11 @@ public class QRCodeScanner extends AppCompatActivity implements BarcodeRetriever
 
                         ArticlesList articles = new ArticlesList(jo_title.getString("rendered"), jo_image.getString("source_url"), jo_content.getString("rendered"), jo.getString("date"));
 
-                    final String KEY_TITLE = "title";
-                    final String KEY_IMAGE = "image";
-                    final String KEY_CONTENT = "content";
-                    final String KEY_DATE = "date";
                     Intent skipIntent = new Intent(getApplicationContext(), ArticleActivity.class);
-                    skipIntent.putExtra(KEY_TITLE, articles.getArticle_title());
-                    skipIntent.putExtra(KEY_IMAGE, articles.getArticle_image());
-                    skipIntent.putExtra(KEY_CONTENT, articles.getArticle_content());
-                    skipIntent.putExtra(KEY_DATE, articles.getArticle_date());
+                        skipIntent.putExtra(ArticlesAdapter.KEY_TITLE, articles.getArticle_title());
+                        skipIntent.putExtra(ArticlesAdapter.KEY_IMAGE, articles.getArticle_image());
+                        skipIntent.putExtra(ArticlesAdapter.KEY_IMAGE, articles.getArticle_content());
+                        skipIntent.putExtra(ArticlesAdapter.KEY_DATE, articles.getArticle_date());
                     startActivity(skipIntent);
 
                 } catch (JSONException e){
