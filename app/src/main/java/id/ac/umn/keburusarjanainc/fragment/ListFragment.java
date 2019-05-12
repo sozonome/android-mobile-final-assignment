@@ -79,7 +79,7 @@ public class ListFragment extends Fragment {
                         JSONObject jo_title = jo.getJSONObject("title");
                         JSONObject jo_image = jo.getJSONObject("better_featured_image");
                         JSONObject jo_content = jo.getJSONObject("content");
-                        ArticlesList articles = new ArticlesList(jo_title.getString("rendered"), jo_image.getString("source_url"), jo_content.getString("rendered"), jo.getString("date"));
+                        ArticlesList articles = new ArticlesList(jo_title.getString("rendered"), jo_image.getString("source_url"), jo_content.getString("rendered"), jo.getString("date"), jo.getString("link"));
                         articlesLists.add(articles);
                         Log.d("Test Data ViewPager", "Title JSON : " + jo_title);
                         Log.d("Test Data ViewPager", "Title list : " + articlesLists.get(i).getArticle_title());

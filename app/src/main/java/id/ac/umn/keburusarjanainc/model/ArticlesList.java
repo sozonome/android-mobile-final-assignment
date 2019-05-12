@@ -11,13 +11,15 @@ public class ArticlesList {
     private String article_image;
     private String article_content;
     private String article_date;
+    private String article_link;
 
-    public ArticlesList(String article_title, String article_image, String article_content, String article_date){
+    public ArticlesList(String article_title, String article_image, String article_content, String article_date, String article_link){
         this.article_title = String.valueOf(Html.fromHtml(article_title, Html.FROM_HTML_MODE_LEGACY));
         this.article_image = article_image;
         this.article_content = article_content;
 //        this.article_date = article_date;
         this.article_date = parseDate(article_date);
+        this.article_link = article_link;
     }
 
     public String parseDate(String date){
@@ -48,5 +50,12 @@ public class ArticlesList {
         return article_date;
     }
 
+    public String getArticle_link() {
+        return article_link;
+    }
+
+    public void setArticle_link(String article_link) {
+        this.article_link = article_link;
+    }
 
 }

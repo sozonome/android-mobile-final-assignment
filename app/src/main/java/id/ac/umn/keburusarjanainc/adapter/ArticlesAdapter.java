@@ -24,6 +24,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
     public static final String KEY_IMAGE = "image";
     public static final String KEY_CONTENT = "content";
     public static final String KEY_DATE = "date";
+    public static final String KEY_LINK = "link";
 
     private List<ArticlesList> articlesLists;
     private Context context;
@@ -59,6 +60,7 @@ public class ArticlesAdapter extends RecyclerView.Adapter<ArticlesAdapter.ViewHo
                 skipIntent.putExtra(KEY_IMAGE, articlesList1.getArticle_image());
                 skipIntent.putExtra(KEY_CONTENT, articlesList1.getArticle_content());
                 skipIntent.putExtra(KEY_DATE, articlesList1.getArticle_date());
+                skipIntent.putExtra(KEY_LINK, articlesList1.getArticle_link());
                 v.getContext().startActivity(skipIntent);
             }
         });

@@ -126,13 +126,14 @@ public class QRCodeScanner extends AppCompatActivity implements BarcodeRetriever
                         JSONObject jo_image = jo.getJSONObject("better_featured_image");
                         JSONObject jo_content = jo.getJSONObject("content");
 
-                        ArticlesList articles = new ArticlesList(jo_title.getString("rendered"), jo_image.getString("source_url"), jo_content.getString("rendered"), jo.getString("date"));
+                        ArticlesList articles = new ArticlesList(jo_title.getString("rendered"), jo_image.getString("source_url"), jo_content.getString("rendered"), jo.getString("date"), jo.getString("link"));
 
                     Intent skipIntent = new Intent(getApplicationContext(), ArticleActivity.class);
                         skipIntent.putExtra(ArticlesAdapter.KEY_TITLE, articles.getArticle_title());
                         skipIntent.putExtra(ArticlesAdapter.KEY_IMAGE, articles.getArticle_image());
                         skipIntent.putExtra(ArticlesAdapter.KEY_IMAGE, articles.getArticle_content());
                         skipIntent.putExtra(ArticlesAdapter.KEY_DATE, articles.getArticle_date());
+                        skipIntent.putExtra(ArticlesAdapter.KEY_LINK, articles.getArticle_link());
                     startActivity(skipIntent);
 
                 } catch (JSONException e){
