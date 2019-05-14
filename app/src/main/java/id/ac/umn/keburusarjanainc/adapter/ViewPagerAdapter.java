@@ -1,5 +1,6 @@
 package id.ac.umn.keburusarjanainc.adapter;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,51 +19,62 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         ListFragment listFragment = new ListFragment();
-        Log.d("ViewPagerAdapter", "Mulai Masuk : " + position + " " + listFragment);
+//        Log.d("ViewPagerAdapter", "Mulai Masuk : " + position + ", " + listFragment);
         Bundle bundle = new Bundle();
 
         switch (position){
             case 0:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", ""); //Recent / Home
                 listFragment.setArguments(bundle);
                 return listFragment;
             case 1:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", "?categories=2125"); //Berita Kampus
                 listFragment.setArguments(bundle);
                 return listFragment;
             case 2:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", "?categories=11"); //Opini
                 listFragment.setArguments(bundle);
                 return listFragment;
             case 3:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", "?categories=6"); //Event
                 listFragment.setArguments(bundle);
                 return listFragment;
             case 4:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", "?categories=9173"); //Hiburan
                 listFragment.setArguments(bundle);
                 return listFragment;
             case 5:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", "?categories=9"); //Review
                 listFragment.setArguments(bundle);
                 return listFragment;
             case 6:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", "?categories=45"); //Olahraga
                 listFragment.setArguments(bundle);
                 return listFragment;
             case 7:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", "?categories=7"); //Otomotif
                 listFragment.setArguments(bundle);
                 return listFragment;
             case 8:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", "?categories=5"); //Lifestyle
                 listFragment.setArguments(bundle);
                 return listFragment;
             case 9:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", "?categories=3"); //Iptek
                 listFragment.setArguments(bundle);
                 return listFragment;
             case 10:
+                Log.d("ViewPagerAdapter", "Masuk case " + position);
                 bundle.putString("param", "?categories=12"); //Jalan-Jalan
                 listFragment.setArguments(bundle);
                 return listFragment;

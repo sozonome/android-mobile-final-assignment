@@ -3,4 +3,25 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Nama Anggota Kelompok -->
+    <string name="sasa">Hanasya Shabrina</string>
+    <string name="nathan">Agustinus Nathaniel</string>
+    <string name="robin">Robin Colinkang</string>
+    <string name="imam">Imam Wiratama</string>
+
+    <!-- NIM Anggota Kelompok -->
+    <string name="nim_sasa">14425</string>
+    <string name="nim_nathan">14472</string>
+    <string name="nim_robin">17937</string>
+    <string name="nim_imam">18173</string>
+
+    <string name="redaksi_ultimagz">Jl. Scientia Boulevard\n
+Universitas Multimedia Nusantara\n
+Summarecon Gading Serpong\n
+Tangerang, Banten 15811</string>
+
+    <string name="telepon_ultimagz">(021) 54220808</string>
+    <string name="email_ultimagz">redaksi@ultimagz.com</string>
+
 </resources>

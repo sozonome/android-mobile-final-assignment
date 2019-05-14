@@ -80,7 +80,7 @@ public class QRCodeScanner extends AppCompatActivity implements BarcodeRetriever
                     }
                 }
                 else if(strings[2].equals(fokus)){
-                    Log.d("URL CodeScanned", "URL yang akan ditarik : " + scannedLink);
+//                    Log.d("URL CodeScanned", "URL yang akan ditarik : " + scannedLink);
 
                     Intent skipIntent = new Intent(getApplicationContext(), FokusWebActivity.class);
                     skipIntent.putExtra(KEY_URL, scannedLink);
@@ -112,7 +112,7 @@ public class QRCodeScanner extends AppCompatActivity implements BarcodeRetriever
 
         final String URL_DATA = "http://ultimagz.com/wp-json/wp/v2/posts";
 
-        Log.d("URL CodeScanned", "URL yang akan ditarik : " + URL_DATA + URL_PARAM);
+//        Log.d("URL CodeScanned", "URL yang akan ditarik : " + URL_DATA + URL_PARAM);
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 URL_DATA + URL_PARAM, new Response.Listener<String>() {
@@ -120,18 +120,16 @@ public class QRCodeScanner extends AppCompatActivity implements BarcodeRetriever
             public void onResponse(String response) {
                 try {
                     JSONArray array = new JSONArray(response);
-
                         JSONObject jo = array.getJSONObject(0);
                         JSONObject jo_title = jo.getJSONObject("title");
                         JSONObject jo_image = jo.getJSONObject("better_featured_image");
                         JSONObject jo_content = jo.getJSONObject("content");
-
                         ArticlesList articles = new ArticlesList(jo_title.getString("rendered"), jo_image.getString("source_url"), jo_content.getString("rendered"), jo.getString("date"), jo.getString("link"));
 
                     Intent skipIntent = new Intent(getApplicationContext(), ArticleActivity.class);
                         skipIntent.putExtra(ArticlesAdapter.KEY_TITLE, articles.getArticle_title());
                         skipIntent.putExtra(ArticlesAdapter.KEY_IMAGE, articles.getArticle_image());
-                        skipIntent.putExtra(ArticlesAdapter.KEY_IMAGE, articles.getArticle_content());
+                        skipIntent.putExtra(ArticlesAdapter.KEY_CONTENT, articles.getArticle_content());
                         skipIntent.putExtra(ArticlesAdapter.KEY_DATE, articles.getArticle_date());
                         skipIntent.putExtra(ArticlesAdapter.KEY_LINK, articles.getArticle_link());
                     startActivity(skipIntent);

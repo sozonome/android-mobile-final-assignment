@@ -7,16 +7,20 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <include
+        layout = "@layout/app_bar"
+        android:id="@+id/appbar"/>
+
     <android.support.design.widget.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabMode="scrollable"
-        android:background="@color/colorAccent"
+        android:background="@color/colorSecondaryAccent"
         android:elevation="4dp"
         android:minHeight="?attr/actionBarSize"
         app:tabGravity="fill"
-        app:tabTextColor="@color/colorPrimary"
+        app:tabTextColor="@color/colorSecondaryDark"
         app:tabIndicatorColor="@color/colorPrimaryDark"
         app:tabSelectedTextColor="#000"/>
 

@@ -1,8 +1,10 @@
 package id.ac.umn.keburusarjanainc;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,6 +27,9 @@ public class ArticleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article);
+
+        Toolbar toolbar = findViewById(R.id.appbar);
+        setSupportActionBar(toolbar);
 
         TextView articleTitle = findViewById(R.id.article_title);
         ImageView articleImageView = findViewById(R.id.article_image);

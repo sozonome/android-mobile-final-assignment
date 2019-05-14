@@ -65,6 +65,7 @@ public class ListFragment extends Fragment {
     private void loadUrlData(String URL_PARAM){
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Loading . . .");
+        Log.d("ViewPagerAdapter : ViewPager new Fragment", URL_PARAM);
         progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
@@ -81,14 +82,14 @@ public class ListFragment extends Fragment {
                         JSONObject jo_content = jo.getJSONObject("content");
                         ArticlesList articles = new ArticlesList(jo_title.getString("rendered"), jo_image.getString("source_url"), jo_content.getString("rendered"), jo.getString("date"), jo.getString("link"));
                         articlesLists.add(articles);
-                        Log.d("Test Data ViewPager", "Title JSON : " + jo_title);
-                        Log.d("Test Data ViewPager", "Title list : " + articlesLists.get(i).getArticle_title());
+//                        Log.d("Test Data ViewPager", "Title JSON : " + jo_title);
+//                        Log.d("Test Data ViewPager", "Title list : " + articlesLists.get(i).getArticle_title());
                     }
 
                     adapter = new ArticlesAdapter(articlesLists, getContext());
                     recyclerView.setAdapter(adapter);
-                    Log.d("Test Data ViewPager", "Title : " + articlesLists.get(0).getArticle_title());
-                    Log.d("Test Data ViewPager", "Size : " + articlesLists.size());
+//                    Log.d("Test Data ViewPager", "Title : " + articlesLists.get(0).getArticle_title());
+//                    Log.d("Test Data ViewPager", "Size : " + articlesLists.size());
                 } catch (JSONException e){
                     e.printStackTrace();
                 }
@@ -116,7 +117,7 @@ public class ListFragment extends Fragment {
             }
         });
 
-        Log.d("URL ViewPager", "URL yang ditarik : " + URL_DATA + URL_PARAM);
+//        Log.d("URL ViewPager", "URL yang ditarik : " + URL_DATA + URL_PARAM);
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
     }
