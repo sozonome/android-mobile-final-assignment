@@ -58,6 +58,12 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent1 = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent1);
                 break;
+
+            case R.id.fokus_option:
+                Intent skipIntent = new Intent(getApplicationContext(), FokusWebActivity.class);
+                skipIntent.putExtra(QRCodeScanner.KEY_URL, "http://fokus.ultimagz.com/");
+                startActivity(skipIntent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

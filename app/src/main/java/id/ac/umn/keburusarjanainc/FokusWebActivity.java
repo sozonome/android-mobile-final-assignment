@@ -21,7 +21,7 @@ public class FokusWebActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String URL = intent.getStringExtra(QRCodeScanner.KEY_URL);
-        Log.d("URL CodeScanned, Masuk FokusWebActivity", "URL yang akan ditarik : " + URL);
+//        Log.d("URL CodeScanned, Masuk FokusWebActivity", "URL yang akan ditarik : " + URL);
 
         WebView myWebView2 = findViewById(R.id.webView2);
         WebSettings webSettings = myWebView2.getSettings();

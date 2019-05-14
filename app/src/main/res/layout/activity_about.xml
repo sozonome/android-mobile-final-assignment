@@ -36,10 +36,12 @@
                     android:layout_height="wrap_content"
                     android:text="Redaksi"
                     android:textStyle="bold"
+                    android:textColor="@color/colorBlueHighlight"
                     android:textAlignment="center"/>
                 <TextView
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlueHighlight"
                     android:text="@string/redaksi_ultimagz"
                     android:textAlignment="center"/>
             </LinearLayout>
@@ -54,11 +56,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlueHighlight"
                     android:text="Telepon : "
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlueHighlight"
                     android:text="@string/telepon_ultimagz" />
             </LinearLayout>
 
@@ -72,11 +76,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlueHighlight"
                     android:text="Email : "
                     android:textStyle="bold" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/colorBlueHighlight"
                     android:text="@string/email_ultimagz" />
             </LinearLayout>
 

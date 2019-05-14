@@ -6,6 +6,9 @@
         android:id="@+id/qr_code_button"
         android:title="QR Code Scanner" />
     <item
+        android:id="@+id/fokus_option"
+        android:title="Fokus" />
+    <item
         android:id="@+id/about_menu"
         android:title="About" />
 </menu>
