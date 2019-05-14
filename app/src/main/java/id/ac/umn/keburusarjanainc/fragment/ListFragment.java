@@ -1,9 +1,12 @@
 package id.ac.umn.keburusarjanainc.fragment;
 
 
+
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -63,16 +66,15 @@ public class ListFragment extends Fragment {
     }
 
     private void loadUrlData(String URL_PARAM){
-        final ProgressDialog progressDialog = new ProgressDialog(getContext());
-        progressDialog.setMessage("Loading . . .");
-        Log.d("ViewPagerAdapter : ViewPager new Fragment", URL_PARAM);
-        progressDialog.show();
+//        final Dialog progressdialog = new AlertDialog.Builder(getContext()).setView(R.layout.loading).create();
+//        Log.d("ViewPagerAdapter : ViewPager new Fragment", URL_PARAM);
+//        progressdialog.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 URL_DATA + URL_PARAM, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                progressDialog.dismiss();
+//                progressdialog.dismiss();
                 try {
                     JSONArray array = new JSONArray(response);
                     for(int i=0; i<array.length(); i++){

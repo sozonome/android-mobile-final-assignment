@@ -2,6 +2,7 @@ package id.ac.umn.keburusarjanainc;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -39,6 +40,7 @@ public class QRCodeScanner extends AppCompatActivity implements BarcodeRetriever
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrcode_scanner);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         BarcodeCapture barcodeCapture = (BarcodeCapture) getSupportFragmentManager().findFragmentById(R.id.barcode);
         barcodeCapture.setRetrieval(this);
@@ -70,22 +72,25 @@ public class QRCodeScanner extends AppCompatActivity implements BarcodeRetriever
                 String[] strings = scannedLink.split("/", 0);
                 String ultimagzArtikel = "ultimagz.com";
                 String fokus = "fokus.ultimagz.com";
-                if(strings[2].equals(ultimagzArtikel)){
-                    if(strings.length>4 ){
-                        String slug = strings[strings.length -1];
-                        loadArticle("?slug="+slug);
+                if (strings.length > 2){
+                    if (strings[2].equals(ultimagzArtikel)) {
+                        if (strings.length > 4) {
+                            String slug = strings[strings.length - 1];
+                            loadArticle("?slug=" + slug);
+                        } else {
+                            showErrorToastMessage();
+                        }
+                    } else if (strings[2].equals(fokus)) {
+//                    Log.d("URL CodeScanned", "URL yang akan ditarik : " + scannedLink);
+
+                        Intent skipIntent = new Intent(getApplicationContext(), FokusWebActivity.class);
+                        skipIntent.putExtra(KEY_URL, scannedLink);
+
+                        startActivity(skipIntent);
                     }
                     else{
                         showErrorToastMessage();
                     }
-                }
-                else if(strings[2].equals(fokus)){
-//                    Log.d("URL CodeScanned", "URL yang akan ditarik : " + scannedLink);
-
-                    Intent skipIntent = new Intent(getApplicationContext(), FokusWebActivity.class);
-                    skipIntent.putExtra(KEY_URL, scannedLink);
-
-                    startActivity(skipIntent);
                 }
                 else{
                     showErrorToastMessage();

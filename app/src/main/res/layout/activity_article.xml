@@ -31,8 +31,20 @@
                     android:layout_marginTop="2dp"
                     android:gravity="left"
                     android:text="Article Title"
-                    android:textSize="24sp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textSize="28sp"
                     android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="16dp" />
+
+                <TextView
+                    android:id="@+id/article_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:gravity="left"
+                    android:text="Article Date"
+                    android:textSize="12sp"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:layout_editor_absoluteX="16dp" />
 
@@ -64,6 +76,17 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/share_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:src="@android:drawable/ic_menu_share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 
