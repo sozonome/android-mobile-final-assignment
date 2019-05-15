@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.about_menu:
-//                aboutDialog();
                 Intent intent1 = new Intent(MainActivity.this, AboutActivity.class);
                 startActivity(intent1);
                 break;
@@ -93,18 +92,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    void aboutDialog(){
-//        AlertDialog.Builder about_dialog = new AlertDialog.Builder(this);
-//        about_dialog.setTitle("Ultimagz Mobile App");
-//        about_dialog.setMessage("Developed by :\n\n" +
-//                "Hanasya Shabrina - 00000014425\n" +
-//                "Agustinus Nathaniel - 00000014472\n" +
-//                "Robin Colinkang - 00000017937\n" +
-//                "Imam Wiratama - 00000018173\n\n" +
-//                "2019");
-//        about_dialog.setNegativeButton("Back", null);
-//
-//        AlertDialog dialog = about_dialog.create();
-//        dialog.show();
-//    }
 }
