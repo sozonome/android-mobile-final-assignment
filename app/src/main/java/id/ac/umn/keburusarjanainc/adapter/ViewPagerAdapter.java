@@ -14,12 +14,16 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     public ViewPagerAdapter(FragmentManager fm){
         super(fm);
+
     }
+
+
+
 
     @Override
     public Fragment getItem(int position) {
         ListFragment listFragment = new ListFragment();
-//        Log.d("ViewPagerAdapter", "Mulai Masuk : " + position + ", " + listFragment);
+        Log.d("ViewPagerAdapter", "Mulai Masuk : " + position + ", " + listFragment);
         Bundle bundle = new Bundle();
 
         switch (position){

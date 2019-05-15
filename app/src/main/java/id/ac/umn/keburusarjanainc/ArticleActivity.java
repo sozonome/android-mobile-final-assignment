@@ -34,6 +34,7 @@ public class ArticleActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.appbar);
         setSupportActionBar(toolbar);
 
+
         TextView articleTitle = findViewById(R.id.article_title);
         TextView articleDate = findViewById(R.id.article_date);
         ImageView articleImageView = findViewById(R.id.article_image);

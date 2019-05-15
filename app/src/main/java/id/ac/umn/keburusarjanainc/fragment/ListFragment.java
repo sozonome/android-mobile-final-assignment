@@ -5,6 +5,7 @@ package id.ac.umn.keburusarjanainc.fragment;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -31,6 +32,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import id.ac.umn.keburusarjanainc.MainActivity;
 import id.ac.umn.keburusarjanainc.R;
 import id.ac.umn.keburusarjanainc.adapter.ArticlesAdapter;
 import id.ac.umn.keburusarjanainc.model.ArticlesList;
@@ -45,9 +47,17 @@ public class ListFragment extends Fragment {
 
     private static final String URL_DATA = "http://ultimagz.com/wp-json/wp/v2/posts";
 
+
+
     public ListFragment() {
         // Required empty public constructor
     }
+
+//    @Override
+//    public void onCreate(@Nullable Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        loadUrlData(getArguments().getString("param"));
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,21 +70,21 @@ public class ListFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         articlesLists = new ArrayList<>();
-        loadUrlData(getArguments().getString("param"));
 
+        loadUrlData(getArguments().getString("param"));
         return view;
     }
 
     private void loadUrlData(String URL_PARAM){
-//        final Dialog progressdialog = new AlertDialog.Builder(getContext()).setView(R.layout.loading).create();
-//        Log.d("ViewPagerAdapter : ViewPager new Fragment", URL_PARAM);
-//        progressdialog.show();
+        final Dialog progressdialog = new AlertDialog.Builder(getContext()).setView(R.layout.loading).create();
+        Log.d("ViewPagerAdapter : ViewPager new Fragment", URL_PARAM);
+        progressdialog.show();
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 URL_DATA + URL_PARAM, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-//                progressdialog.dismiss();
+                progressdialog.dismiss();
                 try {
                     JSONArray array = new JSONArray(response);
                     for(int i=0; i<array.length(); i++){

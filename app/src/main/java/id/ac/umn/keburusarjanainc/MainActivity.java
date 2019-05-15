@@ -8,9 +8,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import id.ac.umn.keburusarjanainc.adapter.ViewPagerAdapter;
 
@@ -33,7 +35,28 @@ public class MainActivity extends AppCompatActivity {
 
         //ViewPager merupakan holder dari Fragment tiap halaman Kategori
         viewPager = findViewById(R.id.viewPager);
+
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+
+//        ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        };
+//
+//        viewPager.addOnPageChangeListener(onPageChangeListener);
+
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout = findViewById(R.id.tabLayout);
