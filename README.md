@@ -4,5 +4,5 @@ Android Native Application by KeburuSarjana group
 for viewing Ultimagz online magazine
 - Hanasya Shabrina
 - Agustinus Nathaniel
-- Kevin Kelly Isyanta
+- Robin Colinkang
 - Imam Wiratama
